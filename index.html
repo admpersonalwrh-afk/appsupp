@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asset PDA</title>
+    <title>Warehouse 1 FG - Menu Utama</title>
     
     <meta name="theme-color" content="#1B365D">
     <link rel="apple-touch-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpjjQ0KG8XLk69cJr3Es786wKiB3ug-v46kmbatp05O_-Lop7co52YEUvS&s=10">
@@ -80,6 +80,43 @@
             border: 2px solid #e2e8f0;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
+        .menu-btn {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #1e293b;
+            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .menu-btn:hover {
+            background-color: #1B365D;
+            border-color: #1B365D;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(27, 54, 93, 0.25);
+        }
+        .menu-btn:hover .icon-box {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            background-color: #e2e8f0;
+            color: #1B365D;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
         footer {
             color: #94a3b8 !important;
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
@@ -89,11 +126,98 @@
 <body class="d-flex flex-column min-vh-100 justify-content-between p-3 p-md-5">
     <div class="container my-auto" style="max-width: 480px;">
         
-        <!--halaman login, jangan edit ya ~jon-->
-        <div id="loginSection" class="card-box p-4 p-md-5">
+        <!-- Halaman Menu Utama (Pilihan Form) -->
+        <div id="menuSelectionSection" class="card-box p-4 p-md-5">
             <div class="text-center mb-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpjjQ0KG8XLk69cJr3Es786wKiB3ug-v46kmbatp05O_-Lop7co52YEUvS&s=10" alt="Logo PT" class="company-logo mb-3">
-                <h3 class="fw-bold text-dark">Asset PDA Warehouse 1 FG</h3>
+                <h3 class="fw-bold text-dark mb-1">Warehouse 1 FG</h3>
+                <p class="text-muted small">Silakan pilih jenis form input yang ingin diakses</p>
+            </div>
+
+            <div class="d-flex flex-column gap-2.5 gap-3">
+                <!-- 1. Asset PDA -->
+                <button type="button" class="btn menu-btn" onclick="selectFormMenu('pda')">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-tablet-screen-button"></i>
+                        </div>
+                        <div>
+                            <div class="fs-6">Asset PDA</div>
+                            <small class="text-muted fw-normal">Peminjaman & Pengembalian PDA</small>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-muted small"></i>
+                </button>
+
+                <!-- 2. Checklist Forklift -->
+                <button type="button" class="btn menu-btn" onclick="selectFormMenu('forklift')">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <div>
+                            <div class="fs-6">Checklist Forklift</div>
+                            <small class="text-muted fw-normal">Inspeksi & Kondisi Forklift</small>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-muted small"></i>
+                </button>
+
+                <!-- 3. Checklist Reachtruck -->
+                <button type="button" class="btn menu-btn" onclick="selectFormMenu('reachtruck')">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-dolly"></i>
+                        </div>
+                        <div>
+                            <div class="fs-6">Checklist Reachtruck</div>
+                            <small class="text-muted fw-normal">Pemeriksaan Berkala Reachtruck</small>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-muted small"></i>
+                </button>
+
+                <!-- 4. Checklist Pallet Mover -->
+                <button type="button" class="btn menu-btn" onclick="selectFormMenu('pallet_mover')">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <div>
+                            <div class="fs-6">Checklist Pallet Mover</div>
+                            <small class="text-muted fw-normal">Kontrol Unit Pallet Mover</small>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-muted small"></i>
+                </button>
+
+                <!-- 5. Pengisian Solar -->
+                <button type="button" class="btn menu-btn" onclick="selectFormMenu('solar')">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-gas-pump"></i>
+                        </div>
+                        <div>
+                            <div class="fs-6">Pengisian Solar</div>
+                            <small class="text-muted fw-normal">Pencatatan Log Bahan Bakar</small>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-muted small"></i>
+                </button>
+            </div>
+        </div>
+
+        <!--halaman login, jangan edit ya ~jon-->
+        <div id="loginSection" class="card-box p-4 p-md-5 d-none">
+            <div class="text-center mb-4">
+                <!-- Tombol Kembali ke Menu Utama -->
+                <div class="text-start mb-3">
+                    <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3" onclick="backToMenu Utama()">
+                        <i class="fa-solid fa-arrow-left me-1"></i> Menu Utama
+                    </button>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpjjQ0KG8XLk69cJr3Es786wKiB3ug-v46kmbatp05O_-Lop7co52YEUvS&s=10" alt="Logo PT" class="company-logo mb-3">
+                <h3 class="fw-bold text-dark" id="loginTitleHeader">Asset PDA Warehouse 1 FG</h3>
                 <p class="text-muted small">Silakan masukkan NIK Anda untuk melanjutkan</p>
             </div>
             <div class="mb-4">
@@ -124,7 +248,7 @@
             </div>
             
             <div class="text-center mb-4">
-                <h4 class="fw-bold text-dark mb-1">Form Asset PDA</h4>
+                <h4 class="fw-bold text-dark mb-1" id="formHeaderTitle">Form Asset PDA</h4>
                 <p id="welcomeUserText" class="text-primary fw-semibold small mb-1">Halo, -</p>
                 <p class="text-muted small mb-0">Peminjaman & Pengembalian</p>
             </div>
@@ -207,20 +331,72 @@
         let currentNama = "";
         let selectedStatus = "PINJAM"; 
         let selectedGroup = ""; 
+        let currentActiveMenu = "pda";
 
         window.onload = function() {
             const savedNik = localStorage.getItem("saved_nik");
             const savedNama = localStorage.getItem("saved_nama");
+            const savedMenu = localStorage.getItem("saved_menu");
+
+            if (savedMenu) {
+                currentActiveMenu = savedMenu;
+            }
+
             if (savedNik && savedNama) {
                 currentNik = savedNik;
                 currentNama = savedNama;
                 document.getElementById('displayNik').innerText = "NIK: " + currentNik;
                 document.getElementById('welcomeUserText').innerText = "Halo, " + currentNama;
+                document.getElementById('menuSelectionSection').classList.add('d-none');
                 document.getElementById('loginSection').classList.add('d-none');
                 document.getElementById('formSection').classList.remove('d-none');
+                applyMenuTitles();
                 checkActiveAssetAndAutoSelect();
             }
         };
+
+        function selectFormMenu(menuType) {
+            currentActiveMenu = menuType;
+            localStorage.setItem("saved_menu", menuType);
+            applyMenuTitles();
+
+            document.getElementById('menuSelectionSection').classList.add('d-none');
+            document.getElementById('loginSection').classList.remove('d-none');
+        }
+
+        function applyMenuTitles() {
+            let title = "Asset PDA Warehouse 1 FG";
+            let formTitle = "Form Asset PDA";
+            
+            if (currentActiveMenu === 'forklift') {
+                title = "Checklist Forklift Warehouse 1 FG";
+                formTitle = "Form Checklist Forklift";
+            } else if (currentActiveMenu === 'reachtruck') {
+                title = "Checklist Reachtruck Warehouse 1 FG";
+                formTitle = "Form Checklist Reachtruck";
+            } else if (currentActiveMenu === 'pallet_mover') {
+                title = "Checklist Pallet Mover Warehouse 1 FG";
+                formTitle = "Form Checklist Pallet Mover";
+            } else if (currentActiveMenu === 'solar') {
+                title = "Pengisian Solar Warehouse 1 FG";
+                formTitle = "Form Pengisian Solar";
+            }
+
+            document.getElementById('loginTitleHeader').innerText = title;
+            document.getElementById('formHeaderTitle').innerText = formTitle;
+        }
+
+        function backToMenuUtama() {
+            localStorage.removeItem("saved_nik");
+            localStorage.removeItem("saved_nama");
+            localStorage.removeItem("saved_menu");
+            document.getElementById('loginSection').classList.add('d-none');
+            document.getElementById('formSection').classList.add('d-none');
+            document.getElementById('successSection').classList.add('d-none');
+            document.getElementById('menuSelectionSection').classList.remove('d-none');
+            document.getElementById('loginNik').value = "";
+            document.getElementById('loginAlert').classList.add('d-none');
+        }
 
         async function handleLogin() {
             const nikInput = document.getElementById('loginNik').value.trim();
